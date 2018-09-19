@@ -46,5 +46,8 @@ public class GroupGarage {
 		this.garages.add(garage);
 	}
 	
+	public List<Garage> getGarages(){
+		return this.garages;
+	}
 	
 }

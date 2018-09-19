@@ -8,5 +8,8 @@ public abstract class Reparation {
 	protected Date modifDate;
 	
 	public abstract String generateXML();
+	public abstract int getId();
+	public abstract Date getArrivalDate();
+	public abstract Date getModifDate();
 
 }

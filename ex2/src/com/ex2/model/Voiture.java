@@ -30,5 +30,20 @@ public class Voiture extends Reparation {
 		nodeCar += "\t\t</Voiture>\n";		
 		return nodeCar;
 	}
+
+	@Override
+	public int getId() {
+		return this.id;
+	}
+
+	@Override
+	public Date getArrivalDate() {
+		return this.arrivalDate;
+	}
+
+	@Override
+	public Date getModifDate() {
+		return this.modifDate;
+	}
 	
 }

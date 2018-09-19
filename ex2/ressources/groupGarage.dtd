@@ -1,0 +1,21 @@
+<!DOCTYPE Gestionnaire SYSTEM "groupGarage.dtd">
+<!DOCTYPE GroupGarage [
+<!ELEMENT GroupGarage (Garage*)>
+<!ELEMENT Garage (Voiture | Moto)*>
+	<!ATTLIST Garage 
+		id CDATA #REQUIRED
+	>
+<!ELEMENT Voiture (ArrivalDate,ModifDate,LastCheckDate)>
+	<!ATTLIST Voiture
+		id CDATA #REQUIRED
+	>
+<!ELEMENT Moto (ArrivalDate,ModifDate,SideCar)>
+	<!ATTLIST Moto
+		id CDATA #REQUIRED
+	>
+<!ELEMENT ArrivalDate (#PCDATA)>
+<!ELEMENT ModifDate (#PCDATA)>
+<!ELEMENT LastCheckDate (#PCDATA)>
+<!ELEMENT SideCar (#PCDATA)>
+	
+]>

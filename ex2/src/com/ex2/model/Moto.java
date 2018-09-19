@@ -33,4 +33,19 @@ public class Moto extends Reparation {
 		this.isSideCar = isSideCar;
 	}
 
+	@Override
+	public int getId() {
+		return this.id;
+	}
+
+	@Override
+	public Date getArrivalDate() {
+		return this.arrivalDate;
+	}
+
+	@Override
+	public Date getModifDate() {
+		return this.modifDate;
+	}
+
 }
