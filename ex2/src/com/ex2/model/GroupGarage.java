@@ -15,5 +15,9 @@ public class GroupGarage {
 		//TODO todo
 	}
 	
+	public void addGarage(Garage garage) {
+		this.garages.add(garage);
+	}
+	
 	
 }

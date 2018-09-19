@@ -6,8 +6,9 @@ public class Moto extends Reparation {
 	
 	public boolean isSideCar;
 	
-	public Moto(boolean isSideCar, Date arrivalDate, Date modifDate) {
+	public Moto(int id, boolean isSideCar, Date arrivalDate, Date modifDate) {
 		super();
+		this.id = id;
 		this.isSideCar = isSideCar;
 		this.arrivalDate = arrivalDate;
 		this.modifDate = modifDate;

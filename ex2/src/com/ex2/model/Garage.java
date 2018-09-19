@@ -4,11 +4,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Garage {
+	protected int id;
 	protected String name;
 	protected String adress;
 	protected List<Reparation> reparations;
 	
-	public Garage(String name, String adress) {
+	public Garage(int id,String name, String adress) {
+		this.id = id;
 		this.name = name;
 		this.adress = adress;
 		this.reparations = new ArrayList<Reparation>();
