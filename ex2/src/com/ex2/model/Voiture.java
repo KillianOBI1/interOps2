@@ -3,7 +3,7 @@ package com.ex2.model;
 import java.util.Date;
 
 public class Voiture extends Reparation {
-	public Date lastCheckDate;
+	protected Date lastCheckDate;
 	
 	public Voiture(int id,Date lastCheckDate, Date arrivalDate, Date modifDate) {
 		super();
