@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<GroupGarage>
+	<Garage id="0">
+		<Voiture id="0">
+			<ArrivalDate>Tue Jun 05 00:00:00 CEST 2018</ArrivalDate>
+			<ModifDate>Thu Jun 07 00:00:00 CEST 2018</ModifDate>
+			<LastCheckDate>Fri Jun 01 00:00:00 CEST 2018</LastCheckDate>
+		</Voiture>
+		<Moto id="0">
+			<ArrivalDate>Thu Jul 05 00:00:00 CEST 2018</ArrivalDate>
+			<ModifDate>Sat Jul 07 00:00:00 CEST 2018</ModifDate>
+			<SideCar>false</SideCar>
+		</Moto>
+		<Moto id="1">
+			<ArrivalDate>Sun Aug 05 00:00:00 CEST 2018</ArrivalDate>
+			<ModifDate>Tue Aug 07 00:00:00 CEST 2018</ModifDate>
+			<SideCar>true</SideCar>
+		</Moto>
+	</Garage>
+	<Garage id="1">
+		<Voiture id="0">
+			<ArrivalDate>Tue Jun 05 00:00:00 CEST 2018</ArrivalDate>
+			<ModifDate>Thu Jun 07 00:00:00 CEST 2018</ModifDate>
+			<LastCheckDate>Fri Jun 01 00:00:00 CEST 2018</LastCheckDate>
+		</Voiture>
+		<Voiture id="1">
+			<ArrivalDate>Thu Jul 05 00:00:00 CEST 2018</ArrivalDate>
+			<ModifDate>Sat Jul 07 00:00:00 CEST 2018</ModifDate>
+			<LastCheckDate>Sun Jul 01 00:00:00 CEST 2018</LastCheckDate>
+		</Voiture>
+		<Moto id="0">
+			<ArrivalDate>Sun Aug 05 00:00:00 CEST 2018</ArrivalDate>
+			<ModifDate>Tue Aug 07 00:00:00 CEST 2018</ModifDate>
+			<SideCar>true</SideCar>
+		</Moto>
+	</Garage>
+</GroupGarage>

@@ -14,7 +14,7 @@ public class GroupGarage {
 	
 	protected List<Garage> garages;
 	
-	protected final static String HEAD = "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"no\"?>\n<Gestionnaire>\n";
+	protected final static String HEAD = "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"no\"?>\n";
 	
 	public GroupGarage() {
 		this.garages = new ArrayList<Garage>();
