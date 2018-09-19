@@ -17,8 +17,12 @@ public class Garage {
 	}
 	
 	public String generateXML() {
-		//TODO aight
-		return "";
+		String nodeGarage = "\t<Garage id=\""+this.id+"\">\n";
+		for(Reparation reparation : this.reparations) {
+			nodeGarage += reparation.generateXML();
+		}
+		nodeGarage += "\t</Garage>\n";
+		return nodeGarage;
 	}
 
 	public String getName() {

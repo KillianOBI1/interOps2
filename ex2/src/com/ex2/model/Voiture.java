@@ -23,8 +23,12 @@ public class Voiture extends Reparation {
 
 	@Override
 	public String generateXML() {
-		
-		return null;
+		String nodeCar = "\t\t<Voiture id=\""+this.id+"\">\n";
+		nodeCar += "\t\t\t<ArrivalDate>"+this.arrivalDate+"</ArrivalDate>\n";
+		nodeCar += "\t\t\t<ModifDate>"+this.modifDate+"</ModifDate>\n";	
+		nodeCar += "\t\t\t<LastCheckDate>"+this.lastCheckDate+"</LastCheckDate>\n";
+		nodeCar += "\t\t</Voiture>\n";		
+		return nodeCar;
 	}
 	
 }

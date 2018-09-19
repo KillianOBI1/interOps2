@@ -16,8 +16,13 @@ public class Moto extends Reparation {
 
 	@Override
 	public String generateXML() {
-		// TODO Auto-generated method stub
-		return null;
+		String nodeMoto = "";
+		nodeMoto += "\t\t<Moto id=\""+this.id+"\">\n";
+		nodeMoto += "\t\t\t<ArrivalDate>"+this.arrivalDate+"</ArrivalDate>\n";
+		nodeMoto += "\t\t\t<ModifDate>"+this.modifDate+"</ModifDate>\n";
+		nodeMoto += "\t\t\t<SideCar>"+this.isSideCar+"</SideCar>\n";
+		nodeMoto += "\t\t</Moto>\n";
+		return nodeMoto;
 	}
 	
 	public boolean isSideCar() {
