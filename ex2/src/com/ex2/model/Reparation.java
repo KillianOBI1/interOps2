@@ -11,5 +11,8 @@ public abstract class Reparation {
 	public abstract int getId();
 	public abstract Date getArrivalDate();
 	public abstract Date getModifDate();
+	public abstract void setId(int id);
+	public abstract void setArrivalDate(Date arrivalDate);
+	public abstract void setModifDate(Date modifDate);
 
 }

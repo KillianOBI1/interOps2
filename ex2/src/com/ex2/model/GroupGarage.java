@@ -42,6 +42,17 @@ public class GroupGarage {
 		
 	}
 	
+	public String generateXMLinString() {
+	  String nodeGroupGarage = "";
+    nodeGroupGarage += HEAD;
+    nodeGroupGarage += "<GroupGarage>\n";
+    for(Garage garage : this.garages) {
+      nodeGroupGarage += garage.generateXML();
+    }
+    nodeGroupGarage += "</GroupGarage>";
+    return nodeGroupGarage;
+	}
+	
 	public void addGarage(Garage garage) {
 		this.garages.add(garage);
 	}

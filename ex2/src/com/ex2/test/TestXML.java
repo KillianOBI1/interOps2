@@ -4,6 +4,8 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import java.io.File;
 import java.io.IOException;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
@@ -132,12 +134,13 @@ class TestXML {
 					}
 				}
 				assertTrue(groupGarage.getGarages().get(i).getReparations().size() == listReparation.size());
+				 DateFormat formatter = new SimpleDateFormat("dd/MM/yy");
 				for(int j = 0; j < listReparation.size() ; j++) {
 					assertTrue(listReparation.get(j).getAttribute("id").equals(groupGarage.getGarages().get(i).getReparations().get(j).getId()+""));
-					assertTrue(((Element) listReparation.get(j).getChildNodes()).getElementsByTagName("ArrivalDate").item(0).getTextContent().equals(groupGarage.getGarages().get(i).getReparations().get(j).getArrivalDate()+""));
-					assertTrue(((Element) listReparation.get(j).getChildNodes()).getElementsByTagName("ModifDate").item(0).getTextContent().equals(groupGarage.getGarages().get(i).getReparations().get(j).getModifDate()+""));
+					assertTrue(((Element) listReparation.get(j).getChildNodes()).getElementsByTagName("ArrivalDate").item(0).getTextContent().equals(formatter.format(groupGarage.getGarages().get(i).getReparations().get(j).getArrivalDate())));
+					assertTrue(((Element) listReparation.get(j).getChildNodes()).getElementsByTagName("ModifDate").item(0).getTextContent().equals(formatter.format(groupGarage.getGarages().get(i).getReparations().get(j).getModifDate())));
 					if(((Element) listReparation.get(j).getChildNodes()).getNodeName().equals("Voiture")) {
-						assertTrue(((Element) listReparation.get(j).getChildNodes()).getElementsByTagName("LastCheckDate").item(0).getTextContent().equals(((Voiture) groupGarage.getGarages().get(i).getReparations().get(j)).getLastCheckDate()+""));
+						assertTrue(((Element) listReparation.get(j).getChildNodes()).getElementsByTagName("LastCheckDate").item(0).getTextContent().equals(formatter.format(((Voiture) groupGarage.getGarages().get(i).getReparations().get(j)).getLastCheckDate())));
 					} else {
 						assertTrue(((Element) listReparation.get(j).getChildNodes()).getElementsByTagName("SideCar").item(0).getTextContent().equals(((Moto) groupGarage.getGarages().get(i).getReparations().get(j)).isSideCar()+""));
 					}

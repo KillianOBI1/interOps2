@@ -1,5 +1,7 @@
 package com.ex2.model;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class Moto extends Reparation {
@@ -13,13 +15,18 @@ public class Moto extends Reparation {
 		this.arrivalDate = arrivalDate;
 		this.modifDate = modifDate;
 	}
+	
+	public Moto() {
+    super();
+  }
 
 	@Override
 	public String generateXML() {
+	  DateFormat formatter = new SimpleDateFormat("dd/MM/yy");
 		String nodeMoto = "";
 		nodeMoto += "\t\t<Moto id=\""+this.id+"\">\n";
-		nodeMoto += "\t\t\t<ArrivalDate>"+this.arrivalDate+"</ArrivalDate>\n";
-		nodeMoto += "\t\t\t<ModifDate>"+this.modifDate+"</ModifDate>\n";
+		nodeMoto += "\t\t\t<ArrivalDate>"+formatter.format(this.arrivalDate)+"</ArrivalDate>\n";
+		nodeMoto += "\t\t\t<ModifDate>"+formatter.format(this.modifDate)+"</ModifDate>\n";
 		nodeMoto += "\t\t\t<SideCar>"+this.isSideCar+"</SideCar>\n";
 		nodeMoto += "\t\t</Moto>\n";
 		return nodeMoto;
@@ -47,5 +54,20 @@ public class Moto extends Reparation {
 	public Date getModifDate() {
 		return this.modifDate;
 	}
+
+  @Override
+  public void setId(int id) {
+    this.id = id;
+  }
+
+  @Override
+  public void setArrivalDate(Date arrivalDate) {
+    this.arrivalDate = arrivalDate;
+  }
+
+  @Override
+  public void setModifDate(Date modifDate) {
+    this.modifDate = modifDate;
+  }
 
 }

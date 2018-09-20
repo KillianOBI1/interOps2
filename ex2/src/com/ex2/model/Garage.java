@@ -16,6 +16,10 @@ public class Garage {
 		this.reparations = new ArrayList<Reparation>();
 	}
 	
+	public Garage() {
+    this.reparations = new ArrayList<Reparation>();
+  }
+	
 	public String generateXML() {
 		String nodeGarage = "\t<Garage id=\""+this.id+"\" name=\""+this.name+"\" adress=\""+this.adress+"\">\n";
 		for(Reparation reparation : this.reparations) {
@@ -56,4 +60,9 @@ public class Garage {
 	public void setId(int id) {
 		this.id = id;
 	}
+
+  @Override
+  public String toString() {
+    return "Garage [id=" + id + ", name=" + name + ", adress=" + adress +"]";
+  }
 }
