@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <GroupGarage>
-	<Garage id="0">
+	<Garage id="0" name="Dédé Garage" adress="20 av le gorgeu">
 		<Voiture id="0">
 			<ArrivalDate>Tue Jun 05 00:00:00 CEST 2018</ArrivalDate>
 			<ModifDate>Thu Jun 07 00:00:00 CEST 2018</ModifDate>
@@ -17,7 +17,7 @@
 			<SideCar>true</SideCar>
 		</Moto>
 	</Garage>
-	<Garage id="1">
+	<Garage id="1" name="José Garage" adress="10 av le gorgeu">
 		<Voiture id="0">
 			<ArrivalDate>Tue Jun 05 00:00:00 CEST 2018</ArrivalDate>
 			<ModifDate>Thu Jun 07 00:00:00 CEST 2018</ModifDate>

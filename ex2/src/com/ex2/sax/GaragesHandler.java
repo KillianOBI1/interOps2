@@ -1,82 +1,46 @@
 package com.ex2.sax;
 
-import java.io.IOException;
-
 import org.xml.sax.Attributes;
-import org.xml.sax.ContentHandler;
-import org.xml.sax.Locator;
 import org.xml.sax.SAXException;
+import org.xml.sax.helpers.DefaultHandler;
 
-public class GaragesHandler implements ContentHandler {
+import com.ex2.model.Garage;
+import com.ex2.model.GroupGarage;
+
+public class GaragesHandler extends DefaultHandler {
+  
+  GroupGarage groupGarage;
 	
 	public GaragesHandler() {
 		super();
 	}
-
-	@Override
-	public void characters(char[] arg0, int arg1, int arg2) throws SAXException {
-		// TODO Auto-generated method stub
-		
+	
+	public void startDocument() throws SAXException{
+	  groupGarage = new GroupGarage();
 	}
-
-	@Override
-	public void endDocument() throws SAXException {
-		// TODO Auto-generated method stub
-		
+	
+	public void endDocument() throws SAXException{
+	  System.out.println("done");
 	}
-
-	@Override
-	public void endElement(String arg0, String arg1, String arg2) throws SAXException {
-		// TODO Auto-generated method stub
-		
+	
+	public void startElement(String namespaceUri, String localName, String rawName, Attributes attributs) throws SAXException{
+	  //TODO Appelée à chaque début d'élément
+	  switch(localName) {
+	  case "GroupGarage":
+	    break;
+	  case "Garage":
+	    groupGarage.addGarage(new Garage(Integer.parseInt(attributs.getValue("id")),attributs.getValue("name"),attributs.getValue("adress")));
+	  case "Voiture":
+	  case "Moto":
+	  }
 	}
-
-	@Override
-	public void endPrefixMapping(String arg0) throws SAXException {
-		// TODO Auto-generated method stub
-		
+	
+	public void endElement(String nameSpaceURI, String localName, String rawName) throws SAXException{
+	  //TODO Appelée à chaque fin d'élément
 	}
-
-	@Override
-	public void ignorableWhitespace(char[] arg0, int arg1, int arg2) throws SAXException {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void processingInstruction(String arg0, String arg1) throws SAXException {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void setDocumentLocator(Locator locator) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void skippedEntity(String name) throws SAXException {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void startDocument() throws SAXException {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void startElement(String uri, String localName, String qName, Attributes atts) throws SAXException {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void startPrefixMapping(String prefix, String uri) throws SAXException {
-		// TODO Auto-generated method stub
-		
+	
+	public void characters(char[] ch, int start, int end) throws SAXException{
+	  // TODO Appelée à chaque fois qu'un contenu est lu entre deux balises
 	}
 
 }

@@ -17,7 +17,7 @@ public class Garage {
 	}
 	
 	public String generateXML() {
-		String nodeGarage = "\t<Garage id=\""+this.id+"\">\n";
+		String nodeGarage = "\t<Garage id=\""+this.id+"\" name=\""+this.name+"\" adress=\""+this.adress+"\">\n";
 		for(Reparation reparation : this.reparations) {
 			nodeGarage += reparation.generateXML();
 		}
