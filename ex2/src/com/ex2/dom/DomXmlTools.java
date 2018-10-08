@@ -11,9 +11,17 @@ import java.util.List;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
+import javax.xml.transform.Transformer;
+import javax.xml.transform.TransformerConfigurationException;
+import javax.xml.transform.TransformerException;
+import javax.xml.transform.TransformerFactory;
+import javax.xml.transform.dom.DOMSource;
+import javax.xml.transform.stream.StreamResult;
 
 import org.w3c.dom.DOMException;
+import org.w3c.dom.DOMImplementation;
 import org.w3c.dom.Document;
+import org.w3c.dom.DocumentType;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
@@ -28,7 +36,7 @@ import com.ex2.model.Voiture;
 public class DomXmlTools {
   protected DocumentBuilder builder;
   File file;
-  static String FILE_LOCATION = "ressources/groupGarage.xml";
+  static String FILE_LOCATION = "ressources/DOMMadeGroupGarage.xml";
   
   
   public DomXmlTools() {
@@ -52,7 +60,6 @@ public class DomXmlTools {
           garage.setId(Integer.parseInt(element.getAttribute("id")));
           garage.setAdress(element.getAttribute("adress"));
           garage.setName(element.getAttribute("name"));
-          
           NodeList reparationList = garageList.item(i).getChildNodes();
           for (int j = 0 ; j < reparationList.getLength(); j++) {
             if (reparationList.item(j).getNodeType() == Node.ELEMENT_NODE) {
@@ -88,12 +95,59 @@ public class DomXmlTools {
     }
     return null;
   }
+ 
+  
+  public void exportXML(GroupGarage groupGarage) {
+    DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
+    DocumentBuilder db;
+    DateFormat formatter = new SimpleDateFormat("dd/MM/yy");
+      try {
+        db = dbf.newDocumentBuilder();
+        DOMImplementation domImpl = db.getDOMImplementation();
+        Document document = domImpl.createDocument(null, "GroupGarage", null);
+        for(int i = 0 ; i < groupGarage.getGarages().size(); i++) {
+          Element garage = document.createElement("Garage");
+          garage.setAttribute("adress", groupGarage.getGarages().get(i).getAdress());
+          garage.setAttribute("name", groupGarage.getGarages().get(i).getName());
+          garage.setAttribute("id", ""+groupGarage.getGarages().get(i).getId());
+          for(int j = 0 ; j < groupGarage.getGarages().get(i).getReparations().size(); j++) {
+            Element reparation;
+            Element arrivalDateElement = document.createElement("ArrivalDate");
+            Element lastModifElementElement = document.createElement("ModifDate");
+            Element thirdElement;
+            if(groupGarage.getGarages().get(i).getReparations().get(j).getClass().getSimpleName().equals("Voiture")) {
+              reparation = document.createElement("Voiture");
+              thirdElement = document.createElement("LastCheckDate");
+              thirdElement.setTextContent(formatter.format(((Voiture)groupGarage.getGarages().get(i).getReparations().get(j)).getLastCheckDate()));
+            } else {
+              reparation = document.createElement("Moto");
+              thirdElement = document.createElement("SideCar");
+              thirdElement.setTextContent(((Moto)groupGarage.getGarages().get(i).getReparations().get(j)).isSideCar+"");
+            }
+            arrivalDateElement.setTextContent(formatter.format(groupGarage.getGarages().get(i).getReparations().get(j).getArrivalDate()));
+            lastModifElementElement.setTextContent(formatter.format(groupGarage.getGarages().get(i).getReparations().get(j).getModifDate()));
+            reparation.setAttribute("id", groupGarage.getGarages().get(i).getReparations().get(j).getId()+"");
+            reparation.appendChild(arrivalDateElement);
+            reparation.appendChild(lastModifElementElement);
+            reparation.appendChild(thirdElement);
+            garage.appendChild(reparation);
+          }
+          document.getDocumentElement().appendChild(garage);
+        }
+        //OUTPUT
+        TransformerFactory transformerFactory = TransformerFactory.newInstance();
+        Transformer transformer = transformerFactory.newTransformer();
+        DOMSource source = new DOMSource(document);
+        StreamResult f = new StreamResult(new File(FILE_LOCATION));
+        transformer.transform(source, f);
+        // Ecrire sur la sortie standard
+//        StreamResult c = new StreamResult(System.out);
+//        transformer.transform(source, c);
+      } catch (ParserConfigurationException | TransformerException e) {
+        // TODO Auto-generated catch block
+        e.printStackTrace();
+      }
+       
+  }
   
 }
-//  File f = new File("ressources/gestionnaireElement.xml");
-//  final DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
-//    DocumentBuilder builder;
-//  try {
-//    builder = factory.newDocumentBuilder();
-//      final Document document= builder.parse(f);
-

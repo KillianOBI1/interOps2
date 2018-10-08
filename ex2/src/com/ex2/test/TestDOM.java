@@ -83,12 +83,28 @@ class TestDOM {
   }
   
   @Test
-  void test() {
+  void testRead() {
     DomXmlTools parserDom = new DomXmlTools();
     GroupGarage readGroupGarage;
     readGroupGarage = parserDom.readXml();
     this.groupGarage= data();
     assertTrue(this.groupGarage.generateXMLinString().equals(readGroupGarage.generateXMLinString()));
+  }
+  
+  @Test
+  void testExport() {
+    DomXmlTools parserDom = new DomXmlTools();
+    this.groupGarage= data();
+    parserDom.exportXML(this.groupGarage);
+  }
+  
+  @Test
+  void testBoth() {
+    DomXmlTools parserDom = new DomXmlTools();
+    this.groupGarage= data();
+    parserDom.exportXML(this.groupGarage);
+    System.out.println(parserDom.readXml().generateXMLinString());
+    assertTrue(parserDom.readXml().generateXMLinString().equals(this.groupGarage.generateXMLinString()));
   }
 
 }
