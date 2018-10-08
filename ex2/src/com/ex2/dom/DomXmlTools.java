@@ -25,13 +25,13 @@ import com.ex2.model.Moto;
 import com.ex2.model.Reparation;
 import com.ex2.model.Voiture;
 
-public class DomXml {
+public class DomXmlTools {
   protected DocumentBuilder builder;
   File file;
   static String FILE_LOCATION = "ressources/groupGarage.xml";
   
   
-  public DomXml() {
+  public DomXmlTools() {
     this.file = new File(FILE_LOCATION);
   }
   

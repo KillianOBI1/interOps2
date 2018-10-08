@@ -9,7 +9,7 @@ import org.junit.jupiter.api.Test;
 import org.junit.runners.Parameterized.Parameter;
 import org.junit.runners.Parameterized.Parameters;
 
-import com.ex2.dom.DomXml;
+import com.ex2.dom.DomXmlTools;
 import com.ex2.model.Garage;
 import com.ex2.model.GroupGarage;
 import com.ex2.model.Moto;
@@ -84,7 +84,7 @@ class TestDOM {
   
   @Test
   void test() {
-    DomXml parserDom = new DomXml();
+    DomXmlTools parserDom = new DomXmlTools();
     GroupGarage readGroupGarage;
     readGroupGarage = parserDom.readXml();
     this.groupGarage= data();
