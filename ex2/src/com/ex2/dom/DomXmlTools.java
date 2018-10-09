@@ -5,14 +5,11 @@ import java.io.IOException;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.List;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.transform.Transformer;
-import javax.xml.transform.TransformerConfigurationException;
 import javax.xml.transform.TransformerException;
 import javax.xml.transform.TransformerFactory;
 import javax.xml.transform.dom.DOMSource;
@@ -21,7 +18,6 @@ import javax.xml.transform.stream.StreamResult;
 import org.w3c.dom.DOMException;
 import org.w3c.dom.DOMImplementation;
 import org.w3c.dom.Document;
-import org.w3c.dom.DocumentType;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
@@ -30,20 +26,19 @@ import org.xml.sax.SAXException;
 import com.ex2.model.Garage;
 import com.ex2.model.GroupGarage;
 import com.ex2.model.Moto;
-import com.ex2.model.Reparation;
 import com.ex2.model.Voiture;
 
 public class DomXmlTools {
-  protected DocumentBuilder builder;
-  File file;
+  protected static DocumentBuilder builder;
+  protected static File file;
   static String FILE_LOCATION = "ressources/DOMMadeGroupGarage.xml";
   
   
   public DomXmlTools() {
-    this.file = new File(FILE_LOCATION);
+    file = new File(FILE_LOCATION);
   }
   
-  public GroupGarage readXml() {
+  public static GroupGarage readXml() {
     final DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
     GroupGarage groupGarage;
     DateFormat formatter = new SimpleDateFormat("dd/MM/yy");

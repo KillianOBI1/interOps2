@@ -12,7 +12,12 @@ import java.util.List;
 
 public class GroupGarage {
 	
-	protected List<Garage> garages;
+	@Override
+  public String toString() {
+    return "GroupGarage [garages=" + garages + "]";
+  }
+
+  protected List<Garage> garages;
 	
 	protected final static String HEAD = "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"no\"?>\n";
 	
